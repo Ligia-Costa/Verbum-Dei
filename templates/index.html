@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbum Dei</title>
+    <link rel="stylesheet" href="../static/estilo.css">
+    <link rel="shortcut icon" href="../static/ico/logo API - Verbum Dei.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <img src="../static/logo.png" alt="logo">
+        <h1>Receba uma mensagem de fé</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="form">
+                <form action="/" method="post">
+                    <label>Informe seu nome:</label>
+                    <input type="text" name="nome">
+                    <button type="submit">Receber Mensagem</button>
+                </form>
+            </div>
+            <div class="mensagem">
+                {% if not versiculo_texto %}
+                    <p>"Porque sou eu que conheço os planos que tenho para vocês, diz o Senhor, planos de fazê-los prosperar e não de lhes causar dano, planos de dar a vocês esperança e um futuro." - Jeremias 29, 11</p>
+                {% else %}
+                    <p><strong>{{ nome }}</strong>, aqui está seu versículo de hoje:</p>
+                    <p>"{{ versiculo_texto }}"</p>
+                    <p><em>({{ referencia }})</em></p>
+                {% endif %}
+                {% if erro %}
+                    <p>{{ erro }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Desenvolvido para espalhar a Palavra de Deus!✝️</p>
+    </footer> 
+</body>
+</html>
